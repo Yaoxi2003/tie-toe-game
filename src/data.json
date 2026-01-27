@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    },
+    {
+        "id": 2,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    },
+    {
+        "id": 3,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    },
+    {
+        "id": 4,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    },
+    {
+        "id": 5,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    },
+    {
+        "id": 6,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    },
+    {
+        "id": 7,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    },
+    {
+        "id": 8,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    },
+    {
+        "id": 9,
+        "isCircle": true,
+        "isClicked": false,
+        "highlight": false
+    }
+
+]

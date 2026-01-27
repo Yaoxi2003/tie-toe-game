@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  /* font */
+  --font-primary: "Outfit", sans-serif;
+  /* Font sizes */
+  --text-t1: 40px;
+  --text-t2: 24px;
+  --text-t3: 20px;
+  --text-body: 16px;
+  --text-t5: 14px;
+  --text-t6: 12px;
+
+  /* Color */
+  --color-slate900: #1A2A33;
+  --color-slate850: #21313B;
+  --color-slate800: #1F3641;
+  --color-slate300: #A8BFC9;
+  --color-slate100: #DBE8ED;
+
+  --color-amber400: #F2B137;
+  --color-amber300: #FFC860;
+
+  --color-teal400: #31C3BD;
+  --color-teal300: #65E9E4;
+
+  /* Spacing */
+  --spacing-mobile: 328px;
+  --spacing-tablet: 461px;
+  --spacing-desktop: 500px;
+
+}
+
+body {
+  color: var(--color-slate300);
+  font-family: var(--font-primary);
+  font-size: var(--text-body);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  background: var(--color-slate900);
+
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+
+  /*========== Typography ===========*/
+  h1 {
+    @apply text-t2 uppercase font-bold sm:text-t1
+  }
+  h2 {
+    @apply text-t5 uppercase font-semibold
+  }
+  h3 {
+    @apply text-t6 uppercase
+  }
+  h4 {
+    @apply text-t3 sm:text-t2 uppercase
+  }
+  .yellow-win {
+    @apply text-amber400 
+  }
+  .blue-win {
+    @apply text-teal400
+  }
+
+  /*========== Buttons ===========*/
+  button {
+    @apply cursor-pointer text-slate900 uppercase transition-colors duration-300
+  }
+
+  .primary-btn {
+    @apply text-body sm:text-t3 rounded-[16px] py-[16px] px-4 w-full shadow-[inset_0_-6px_0px_rgba(0,0,0,0.4)]
+          
+  }
+  .amber-btn {
+    @apply bg-amber400 
+  }
+  .amber-btn:hover,
+  .amber-btn:focus {
+    @apply bg-amber300
+  }
+  .teal-btn {
+    @apply bg-teal400
+  }
+  .teal-btn:hover,
+  .teal-btn:focus {
+    @apply bg-teal300
+  }
+
+  .secondary-btn {
+    @apply text-body rounded-[10px] p-[14px] shadow-[inset_0_-4px_0px_rgba(0,0,0,0.2)]
+  }
+  .main-btn {
+    @apply bg-amber400 
+  }
+  .main-btn:hover,
+  .main-btn:focus {
+    @apply bg-amber300
+  }
+  .slate-btn {
+    @apply bg-slate300
+  }
+  .slate-btn:hover,
+  .slate-btn:focus {
+    @apply bg-slate100
+  }
+
+  .turn {
+    @apply rounded-xl bg-slate800 flex items-center justify-center gap-4 py-[14px] px-[30px] 
+          shadow-[inset_0_-4px_0px_rgba(0,0,0,0.4)]
+  }
+
+  .mark-btn {
+    @apply w-[50%] rounded-[10px] p-3 flex justify-center items-center
+            transition-all duration-600
+  }
+  .mark-light {
+    @apply bg-slate300
+  }
+  .mark-dark {
+    @aaply bg-slate900
+  }
+
+  /* Pads */
+  .pad {
+    @apply w-[96px] h-[96px] sm:w-[140px] sm:h-[140px] rounded-[16px] bg-slate800 
+            flex justify-center items-center shadow-[inset_0_-8px_0px_rgba(0,0,0,0.5)]
+  }
+  .pad-img {
+    @apply hidden transition-all duration-300
+  }
+  .pad:hover .pad-img {
+    @apply block
+  }
+  
+  /* scoreboard */
+  .score-board {
+    @apply rounded-[16px] p-2 w-full text-center text-slate900
+  }
+  .x-board {
+    @apply bg-teal400
+  }
+  .o-board {
+    @apply bg-amber400
+  }
+  .tie-board {
+    @apply bg-slate300
+  }
+
+  
+  /*========== General layout ===========*/
+  .container-pro {
+    @apply max-w-mobile sm:max-w-tablet lg:max-w-desktop mx-auto px-4
+  }
+
+}
+
+
+
