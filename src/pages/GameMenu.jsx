@@ -28,7 +28,7 @@ export default function GameMenu({children, mode, handleGameStart, id}) {
                 </div>
             </section>}
 
-            {mode.startGame && !mode.isSolo ? gameStart : null}
+            {mode.startGame ? gameStart : null}
         
         </>
 

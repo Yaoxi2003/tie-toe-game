@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react'
+import {useState, useEffect, useRef} from 'react'
 import useToggle from './hooks/useToggle'
 import data from './data.json'
 
@@ -23,13 +23,20 @@ export default function App() {
 
   // static value
   const winSet = [[1,2,3], [4,5,6], [7,8,9], [1,4,7], [2,5,8], [3,6,9], [1,5,9], [3,5,7]]
+  const firstRender = useRef(true)
 
   // derive value
   const pads = pad.map(
     item => <Pad key={item.id} on={on} changePad={changePad} id={item.id} isCircle={item.isCircle} isClicked={item.isClicked} highlight={item.highlight} />
   )
-  
 
+  const scoreBoards =
+  <>
+      <ScoreBoard firstplayer={firstPlayer} player='x' mode={mode}>{score.x}</ScoreBoard>
+      <ScoreBoard firstplayer={firstPlayer} player='ties' mode={mode}>{score.tie}</ScoreBoard>
+      <ScoreBoard firstplayer={firstPlayer} player='o' mode={mode}>{score.o}</ScoreBoard>
+  </> 
+  
   // functions
 
   function playerMark(id) {
@@ -140,6 +147,30 @@ export default function App() {
     }
   }
 
+  function runCpu() {
+    const randomId = Math.floor(Math.random() * pad.length)
+    
+    setPad(prev => prev.map(
+      item => item.id === randomId && !item.isClicked
+      ? {...item, isClicked: true, isCircle: on}
+      : item
+    ))
+    
+  }
+
+  useEffect(() => {
+    if (mode.isSolo && mode.startGame) {
+       // Assuming 'on' (true) is O's turn (CPU) and 'on' (false) is X's turn (Player)
+       // Adjust '!on' or 'on' based on which one is the CPU
+       if (on) { 
+           // It's CPU's turn, run the function
+          runCpu()
+          toggle()
+       }
+    }
+  }, [on, mode.isSolo, mode.startGame])
+
+
   return (
     <main className='relative w-full h-screen'>
 
@@ -147,9 +178,7 @@ export default function App() {
         <ToggleBtn playerMark={playerMark} firstPlayer={firstPlayer} />
         <GameStart on={on} restart={restart}>
           {pads}
-          <ScoreBoard firstplayer={firstPlayer} player='x'>{score.x}</ScoreBoard>
-          <ScoreBoard firstplayer={firstPlayer} player='ties'>{score.tie}</ScoreBoard>
-          <ScoreBoard firstplayer={firstPlayer} player='o'>{score.o}</ScoreBoard>
+          {scoreBoards}
         </GameStart>
       </GameMenu>
 
